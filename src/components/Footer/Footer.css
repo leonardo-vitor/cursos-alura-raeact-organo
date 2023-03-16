@@ -1,0 +1,24 @@
+.footer {
+    background-color: #6278f7;
+    text-align: center;
+    padding: 32px 0;
+    color: #fff;
+}
+
+.footer-size {
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.footer-size .social-media, 
+.footer-size .logo, 
+.footer-size .developed-by {
+    flex-basis: 28%;
+}
+
+.footer-size .social-media img {
+    padding: 0 32px;
+}

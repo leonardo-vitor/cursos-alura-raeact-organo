@@ -1,0 +1,23 @@
+.dropdown-select {
+    margin: 24px 0;
+}
+
+.dropdown-select label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.dropdown-select select {
+    background-color: #fff;
+    box-shadow: 10px 10x 30px rgba(0, 0, 0, 0);
+    width: 100%;
+    border: none;
+    font-size: 24px;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.dropdown-select select .placeholder{
+    color: #AFAFAF;
+}
