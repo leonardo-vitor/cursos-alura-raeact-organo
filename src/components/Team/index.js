@@ -1,15 +1,28 @@
+import hexToRgba from 'hex-to-rgba';
 import Member from '../Member';
 import './Team.css';
 
-const Team = (props) => {
+const Team = ({ team, members, onRemove, onChangeTeamColor, onFavorite }) => {
     return (
-        props.members.length > 0 && <section className='team' style={{ backgroundColor: props.secondaryColor }}>
-            <h3 style={{ borderColor: props.primaryColor }}>
-                {props.name}
+        members.length > 0 && <section className='team' style={{ backgroundImage: 'url(/images/fundo.png)', backgroundColor: hexToRgba(team.color, .18) }}>
+            <input type='color' className='input-color' value={team.color} onChange={e => onChangeTeamColor(e.target.value, team.id)} />
+
+            <h3 style={{ borderColor: team.color }}>
+                {team.name}
             </h3>
 
-            <div className='members' key={props.name}>
-                {props.members.map(member => <Member member={member} headerColor={props.primaryColor} />)}
+            <div className='members' key={team.name}>
+                {members.map(member => {
+                    return (
+                        <Member
+                            key={member.name}
+                            member={member}
+                            headerColor={team.color}
+                            onRemove={onRemove}
+                            onFavorite={onFavorite}
+                        />
+                    )
+                })}
             </div>
         </section>
     )

@@ -1,24 +1,17 @@
 .footer {
-    background-color: #6278f7;
-    text-align: center;
-    padding: 32px 0;
-    color: #fff;
-}
-
-.footer-size {
-    max-width: 1200px;
+    background: #6278F7;
+    color: #FFF;
+    padding: 80px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    margin: 0 auto;
 }
 
-.footer-size .social-media, 
-.footer-size .logo, 
-.footer-size .developed-by {
-    flex-basis: 28%;
+.footer ul li {
+    display: inline-block;
+    margin-right: 32px;
 }
 
-.footer-size .social-media img {
-    padding: 0 32px;
+.footer ul li:last-child {
+    margin-right: 0;
 }

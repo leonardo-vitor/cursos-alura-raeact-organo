@@ -1,9 +1,10 @@
 .member {
     width: 280px;
     margin-top: 16px;
+    position: relative;
 }
 
-.member .header {
+.member .member-header {
     background-color:  #F0F0F0;
     border-radius: 10px 10px 0px 0px;
 }
@@ -14,7 +15,7 @@
     bottom: -50px;
 }
 
-.member .footer {
+.member .member-footer {
     background: #FFFFFF;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
     border-radius: 0px 0px 10px 10px;
@@ -22,7 +23,7 @@
     padding-bottom: 40px;
 }
 
-.member .footer h4 {
+.member .member-footer h4 {
     color: #6278F7;
     font-size: 18px;
     line-height: 22px;
@@ -30,9 +31,20 @@
     margin-bottom: 8px;
 }
 
-.member .footer h5 {
+.member .member-footer h5 {
     font-size: 18px;
     line-height: 22px;
     color: #212121;
     padding: 0 16px;
+}
+
+.remove {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.favorite {
+    cursor: pointer;
 }

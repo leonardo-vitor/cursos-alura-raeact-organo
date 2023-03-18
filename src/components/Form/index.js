@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Button from '../Button';
 import DropdownSelect from '../DropdownSelect';
-import TextField from '../TextField';
+import InputField from '../InputField';
 import './Form.css';
 
 
@@ -9,23 +9,38 @@ const Form = (props) => {
     const initialState = { name: '', role: '', image: '', team: '' }
     const [fields, setFields] = useState(initialState);
 
+    const initialNewTeam = { name: '', color: '' }
+    const [fieldsTeam, setFieldsTeam] = useState(initialNewTeam);
+
     const handleFieldsChange = (e) => setFields({
         ...fields,
         [e.currentTarget.name]: e.currentTarget.value
     });    
 
-    const formSave = (e) => {
+    const handleFieldsTeamChange = (e) => setFieldsTeam({
+        ...fieldsTeam,
+        [e.currentTarget.name]: e.currentTarget.value
+    });    
+
+    const formMemberSave = (e) => {
         e.preventDefault();
         props.onSaveMember(fields);
         setFields(initialState);
     }
 
+    const formTeamSave = (e) => {
+        e.preventDefault();
+        props.onSaveTeam(fieldsTeam);
+        setFieldsTeam(initialNewTeam);
+    }
+
     return (
         <section className='section-form'>
-            <form onSubmit={formSave}>
+            <form onSubmit={formMemberSave}>
                 <h2>Preencha os dados para criar o colaborador</h2>
-                <TextField
+                <InputField
                     id="name"
+                    type="text"
                     title="Nome"
                     required={true}
                     placeholder="Digite seu nome"
@@ -33,8 +48,9 @@ const Form = (props) => {
                     onChanged={handleFieldsChange}
                 />
 
-                <TextField
+                <InputField
                     id="role"
+                    type="text"
                     title="Cargo"
                     required={true}
                     placeholder="Digite seu cargo"
@@ -42,8 +58,9 @@ const Form = (props) => {
                     onChanged={handleFieldsChange}
                 />
 
-                <TextField
+                <InputField
                     id="image"
+                    type="text"
                     title="Imagem"
                     required={false}
                     placeholder="Informe o endereço da imagem"
@@ -62,6 +79,31 @@ const Form = (props) => {
                 />
 
                 <Button type='submit'>Criar Card</Button>
+            </form>
+            
+            <form onSubmit={formTeamSave}>
+                <h2>Preencha os dados para criar um time</h2>
+                <InputField
+                    id="name"
+                    type="text"
+                    title="Time"
+                    required={true}
+                    placeholder="Digite o nome do time"
+                    value={fieldsTeam.name}
+                    onChanged={handleFieldsTeamChange}
+                />
+
+                <InputField
+                    id="color"
+                    type="color"
+                    title="Cor"
+                    required={true}
+                    placeholder="Escolha uma cor"
+                    value={fieldsTeam.color}
+                    onChanged={handleFieldsTeamChange}
+                />
+
+                <Button type='submit'>Criar Time</Button>
             </form>
         </section>
     );
